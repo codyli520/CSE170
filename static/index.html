@@ -15,9 +15,17 @@
         function goalClick(){
             $('.homepage').hide();
             $('.goal').show();
+            $('.nav-header').html('<a herf="#" onclick="homeClick()"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true" style="font-size: 1.5em; left:15px; top:15px;"  >Goal</span></a>');
             google.charts.load('current', {'packages':['corechart']});
             google.charts.setOnLoadCallback(drawChart);
         }
+        
+         function homeClick(){
+            $('.homepage').show();
+            $('.goal').hide();
+            $('.nav-header').html('<a class="navbar-brand" href="#" id="appLogo">App Name</a>');
+         }
+             
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Item', 'Dollars Saved'],
@@ -60,7 +68,9 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
+                    <div class="nav-header">
                      <a class="navbar-brand" href="#" id="appLogo">App Name</a>
+                    </div>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
