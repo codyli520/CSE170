@@ -12,16 +12,21 @@
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
       
-        function goalClick(){
+        function goalPage(){
             $('.homepage').hide();
+            $('.addSavings').hide();
+            
             $('.goal').show();
-            $('.nav-header').html('<a herf="#" onclick="homeClick()"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true" style="font-size: 1.5em; left:15px; top:15px;"  >Goal</span></a>');
+            
+            $('.nav-header').html('<a class="navbar-brand"><button type="button" class="btn btn-default btn-sm" onclick="homePage()"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></button>&nbsp;Goal</a>');
             google.charts.load('current', {'packages':['corechart']});
             google.charts.setOnLoadCallback(drawChart);
         }
         
-         function homeClick(){
+         function homePage(){
             $('.homepage').show();
+            
+            $('.addSavings').hide();
             $('.goal').hide();
             $('.nav-header').html('<a class="navbar-brand" href="#" id="appLogo">App Name</a>');
          }
@@ -45,18 +50,31 @@
         chart.draw(data, options);
       }
 
+        
+  		function savingsPage(){
+    		$("#appLogo").text("Add Savings");
+    		$('.homepage').hide();
+            $('.goal').hide();
+    		$('.addSavings').show();
+            
+            $('.nav-header').html('<a class="navbar-brand"><button type="button" class="btn btn-default btn-sm" onclick="homePage()"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></button>&nbsp;Add Savings</a>');
+  		}
+        
         $( document ).ready(function() {
             $('.goal').hide();
             $('.addSavings').hide();
         });
-  
-  		function addSavingsPage(){
-    		$("#appLogo").text("Add Savings");
-    		$('.homepage').hide();
-    		$('.addSavings').show();
-
-  		}
         
+        function addSaving(){
+            var amount = isNaN(document.getElementById('inputAmount').value);
+            if(!amount){
+                alert('You have successfull added $'+document.getElementById('inputAmount').value+'.00');
+            }
+            else{
+                alert('PLEASE, enter a numerical value');
+            }
+        }
+  
     </script>
 
 </head>
@@ -97,10 +115,10 @@
 
                     <img src="image/pie.png" height="200" width="200" >
                     <div class="btn-group-1" role="group" aria-label="...">
-                        <button type="button" class="btn btn-default" id="addSavings" onclick="addSavingsPage()">Add Savings</button>
+                        <button type="button" class="btn btn-default" id="savings-btn" onclick="savingsPage()">Add Savings</button>
                     </div>
                     <div class="btn-group-2" role="group" aria-label="...">
-                        <button type="button" class="btn btn-default" id="goal-btn" onclick="goalClick()">Goals</button>
+                        <button type="button" class="btn btn-default" id="goal-btn" onclick="goalPage()">Goals</button>
                         <button type="button" class="btn btn-default">Scan</button>
                     </div>
                 </center>
@@ -127,11 +145,11 @@
                   <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
                  <div class="input-group">
                  <div class="input-group-addon">$</div>
-                 <input type="text" class="form-control" id="exampleInputAmount" placeholder="Savings Amount">
+                 <input type="text" class="form-control" id="inputAmount" placeholder="Savings Amount">
                  <div class="input-group-addon">.00</div>
                  </div>
                  </div>
-                 <button type="submit" class="btn btn-primary">Add Savings</button>
+                 <button type="button" class="btn btn-primary" id="saving-btn" onclick="addSaving()">Add Savings</button>
               </form>
               </center>
             </div>
