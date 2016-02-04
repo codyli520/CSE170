@@ -13,12 +13,13 @@
     <script type="text/javascript">
       
         function goalPage(){
+            $('.goal').show();
+            
             $('.homepage').hide();
             $('.addSavings').hide();
             
-            $('.goal').show();
-            
             $('.nav-header').html('<a class="navbar-brand"><button type="button" class="btn btn-default btn-sm" onclick="homePage()"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></button>&nbsp;Goal</a>');
+            
             google.charts.load('current', {'packages':['corechart']});
             google.charts.setOnLoadCallback(drawChart);
         }
@@ -28,6 +29,7 @@
             
             $('.addSavings').hide();
             $('.goal').hide();
+             
             $('.nav-header').html('<a class="navbar-brand" href="#" id="appLogo">App Name</a>');
          }
              
@@ -52,18 +54,15 @@
 
         
   		function savingsPage(){
-    		$("#appLogo").text("Add Savings");
+            $('.addSavings').show();
+            
     		$('.homepage').hide();
             $('.goal').hide();
-    		$('.addSavings').show();
             
             $('.nav-header').html('<a class="navbar-brand"><button type="button" class="btn btn-default btn-sm" onclick="homePage()"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></button>&nbsp;Add Savings</a>');
   		}
         
-        $( document ).ready(function() {
-            $('.goal').hide();
-            $('.addSavings').hide();
-        });
+       
         
         function addSaving(){
             var amount = isNaN(document.getElementById('inputAmount').value);
@@ -74,6 +73,11 @@
                 alert('PLEASE, enter a numerical value');
             }
         }
+        
+         $( document ).ready(function() {
+            $('.goal').hide();
+            $('.addSavings').hide();
+        });
   
     </script>
 
