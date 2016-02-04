@@ -5,6 +5,7 @@
 <link rel="stylesheet" type="text/css" href="stylesheet/style.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script> 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<!--script src="js/appName.js"></script-->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 <title>CSE170</title>
 
@@ -35,11 +36,16 @@
 
         chart.draw(data, options);
       }
-        
-     
+
         $( document ).ready(function() {
             $('.goal').hide();
         });
+  
+  		function addSavingsPage(){
+    		$("#appLogo").text("Add Savings");
+    		$('.header').text("Groceries");
+  		}
+        
     </script>
 
 </head>
@@ -54,7 +60,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                     <a class="navbar-brand" href="#">App Name</a>
+                     <a class="navbar-brand" href="#" id="appLogo">App Name</a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -68,6 +74,7 @@
                 </div>
             </div>
         </nav>
+
         <div class="col-xs-12">
             <div class="homepage">
 
@@ -76,7 +83,7 @@
                     <p> You are $27 dollars away from your goal of $500!</p>
                     <img src="image/pie.png" height="200" width="200" >
                     <div class="btn-group-1" role="group" aria-label="...">
-                        <button type="button" class="btn btn-default">Add a saving</button>
+                        <button type="button" class="btn btn-default" id="addSavings" onclick="addSavingsPage()">Add Savings</button>
                     </div>
                     <div class="btn-group-2" role="group" aria-label="...">
                         <button type="button" class="btn btn-default" id="goal-btn" onclick="goalClick()">Goals</button>
@@ -97,6 +104,7 @@
                     </div>
                 </center>
             </div>
+
         </div>
 </body>
 </html>
