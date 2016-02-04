@@ -6,6 +6,32 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 <title>CSE170</title>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Item', 'Dollars Saved'],
+          ['Groceries',     11],
+          ['Restaurants & Fast Food',      2],
+          ['Uber & Transit',  2],
+          ['Clothes', 2],
+          ['Misc',    7]
+        ]);
+
+        var options = {
+          title: 'Money Saved'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+
 </head>
     
 <body>
@@ -25,8 +51,8 @@
                 <div class="collapse navbar-collapse" id="navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#">Profile</a></li>
-                        <li><a href="#">Help</a></li>
                         <li><a href="#">Settings</a></li>
+                        <li><a href="#">Help</a></li>
                         <li><a href="#">Logout</a></li>
                     </ul>
                 </div>
@@ -38,9 +64,7 @@
     <center>
         <h1> Hi, Cody</h1>
         <p> You are $27 dollars away from your goal of $500!</p>
-        <div class="image">
-        <img src="image/pie.png" height="200" width="200" >
-        </div>
+        <div id="piechart" style="width: 900px; height: 500px;"></div>
         <div class="btn-group-1" role="group" aria-label="...">
             <button type="button" class="btn btn-default">Add a saving</button>
         </div>
@@ -53,3 +77,5 @@
     </div>
 </body>
 </html>
+
+
