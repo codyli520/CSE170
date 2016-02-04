@@ -47,11 +47,14 @@
 
         $( document ).ready(function() {
             $('.goal').hide();
+            $('.addSavings').hide();
         });
   
   		function addSavingsPage(){
     		$("#appLogo").text("Add Savings");
-    		$('.header').text("Groceries");
+    		$('.homepage').hide();
+    		$('.addSavings').show();
+
   		}
         
     </script>
@@ -91,6 +94,7 @@
                 <center>
                     <h1> Hi, Cody</h1>
                     <p> You are $27 dollars away from your goal of $500!</p>
+
                     <img src="image/pie.png" height="200" width="200" >
                     <div class="btn-group-1" role="group" aria-label="...">
                         <button type="button" class="btn btn-default" id="addSavings" onclick="addSavingsPage()">Add Savings</button>
@@ -113,6 +117,23 @@
                         </ul>
                     </div>
                 </center>
+            </div>
+
+            <div class="addSavings">
+              <center>
+              <h1>Groceries</h1>
+              <form class="form-inline">
+                 <div class="form-group">
+                  <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
+                 <div class="input-group">
+                 <div class="input-group-addon">$</div>
+                 <input type="text" class="form-control" id="exampleInputAmount" placeholder="Savings Amount">
+                 <div class="input-group-addon">.00</div>
+                 </div>
+                 </div>
+                 <button type="submit" class="btn btn-primary">Add Savings</button>
+              </form>
+              </center>
             </div>
 
         </div>
