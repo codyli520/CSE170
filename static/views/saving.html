@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script> 
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <!--script src="js/appName.js"></script-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <title>CSE170</title>
+
+    <script type="text/javascript" src="../js/saving.js"></script>
+
+</head>
+    
+<body>
+        <nav class="navbar navbar-default navbar-static-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <div class="nav-header">
+                     <a class="navbar-brand" href="#" id="appLogo">App Name</a>
+                    </div>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="main.html">Profile</a></li>
+                        <li><a href="main.html">Settings</a></li>
+                        <li><a href="main.html">Help</a></li>
+                        <li><a href="main.html">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="col-xs-12">
+           <div class="addSavings">
+              <center>
+              <h1>Groceries</h1>
+              <form class="form-inline">
+                 <div class="form-group">
+                  <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
+                 <div class="input-group">
+                 <div class="input-group-addon">$</div>
+                 <input type="text" class="form-control" id="inputAmount" placeholder="Savings Amount">
+                 <div class="input-group-addon">.00</div>
+                 </div>
+                 </div>
+                 <button type="button" class="btn btn-primary" id="saving-btn" onclick="addSaving()">Add Savings</button>
+              </form>
+              </center>
+            </div>
+        </div>
+</body>
+</html>
+
+

@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" type="text/css" href="stylesheet/style.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script> 
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-        <!--script src="js/appName.js"></script-->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    </head>
-        <body>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script> 
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <!--script src="js/appName.js"></script-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <title>CSE170</title>
+
+    <script type="text/javascript" src="../js/scan.js"></script>
+
+</head>
+    
+<body>
         <nav class="navbar navbar-default navbar-static-top" role="navigation">
             <div class="container">
                 <div class="navbar-header">
@@ -19,7 +24,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <div class="nav-header">
-                    <a class="navbar-brand"><button type="button" class="btn btn-default btn-sm" onclick="location.href='index.html';"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></button>&nbsp;Placeholder</a>
+                     <a class="navbar-brand" href="#" id="appLogo">App Name</a>
                     </div>
                 </div>
 
@@ -34,8 +39,15 @@
                 </div>
             </div>
         </nav>
-        
-        <p>this is a placeholder</p>
-        </body>
-    
+
+        <div class="col-xs-12">
+             <div class="scan">
+                <center>
+                <input type="file" capture="camera" accept="image/*" id="cameraInput" name="cameraInput">
+                </center>
+            </div>
+        </div>
+</body>
 </html>
+
+

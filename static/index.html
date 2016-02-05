@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="stylesheet/style.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script> 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <!--script src="js/appName.js"></script-->
@@ -10,88 +10,7 @@
 <title>CSE170</title>
 
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-      
-        function goalPage(){
-            $('.goal').show();
-            
-            $('.homepage').hide();
-            $('.addSavings').hide();
-            $('.scan').hide();
-            
-            $('.nav-header').html('<a class="navbar-brand"><button type="button" class="btn btn-default btn-sm" onclick="homePage()"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></button>&nbsp;Goal</a>');
-            
-            google.charts.load('current', {'packages':['corechart']});
-            google.charts.setOnLoadCallback(drawChart);
-        }
-        
-         function homePage(){
-            $('.homepage').show();
-            
-            $('.addSavings').hide();
-            $('.goal').hide();
-            $('.scan').hide();
-             
-            $('.nav-header').html('<a class="navbar-brand" href="#" id="appLogo">App Name</a>');
-         }
-             
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Item', 'Dollars Saved'],
-          ['Groceries',     11],
-          ['Restaurants & Fast Food',      2],
-          ['Uber & Transit',  2],
-          ['Clothes', 2],
-          ['Misc',    7]
-        ]);
-
-        var options = {
-          title: 'Money Saved'
-        };
-
-        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-
-        chart.draw(data, options);
-      }
-
-        
-  		function savingsPage(){
-            $('.addSavings').show();
-            
-    		$('.homepage').hide();
-            $('.goal').hide();
-            $('.scan').hide();
-            
-            $('.nav-header').html('<a class="navbar-brand"><button type="button" class="btn btn-default btn-sm" onclick="homePage()"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></button>&nbsp;Add Savings</a>');
-  		}
-        
-       function scanPage(){
-            $('.scan').show();
-            
-    		$('.homepage').hide();
-            $('.goal').hide();
-            $('.addSavings').hide();
-           
-             $('.nav-header').html('<a class="navbar-brand"><button type="button" class="btn btn-default btn-sm" onclick="homePage()"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></button>&nbsp;Scan</a>');
-       }
-        
-        function addSaving(){
-            var amount = isNaN(document.getElementById('inputAmount').value);
-            if(!amount){
-                alert('You have successfull added $'+document.getElementById('inputAmount').value+'.00');
-            }
-            else{
-                alert('PLEASE, enter a numerical value');
-            }
-        }
-        
-         $( document ).ready(function() {
-            $('.goal').hide();
-            $('.addSavings').hide();
-            $('.scan').hide();
-        });
-  
-    </script>
+    <script type="text/javascript" src="js/homepage.js"></script>
 
 </head>
     
@@ -113,70 +32,53 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="main.html">Profile</a></li>
-                        <li><a href="main.html">Settings</a></li>
-                        <li><a href="main.html">Help</a></li>
-                        <li><a href="main.html">Logout</a></li>
-                    </ul>
+                        <li><a href="views/main.html">Profile</a></li>
+                        <li><a href="views/main.html">Settings</a></li>
+                        <li><a href="views/main.html">Help</a></li>
+                        <!--li><a href="main.html">Logout</a></li>
+                        <li><a href="/signup">Sign Up</a></li-->
+                        <li class="divider-vertical"></li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" href="#" data-toggle="dropdown">Sign In <strong class="caret"></strong></a>
+                            <div class="dropdown-menu">
+                                <form method="post" action="login" accept-charset="UTF-8">
+                                    <input type="text" placeholder="Username" id="username" name="username">
+                                    <input type="password" placeholder="Password" id="password" name="password">
+                                    <div class="remember">
+                                    <input type="checkbox" name="remember-me" id="remember-me" value="1">
+                                    <label class="string optional" for="user_remember_me"> Remember me</label>
+                                    </div>
+                                    <input class="btn btn-primary btn-block" type="submit" id="sign-in" value="Sign In">
+                                    <label id="or">or</label>
+                                    <input class="btn btn-primary btn-block" type="button" id="sign-in-google" value="Sign In with Google">
+                                    <input class="btn btn-primary btn-block" type="button" id="sign-in-twitter" value="Sign In with Twitter">
+                                </form>
+                            </div>
+                        </li>
+				</ul>
                 </div>
             </div>
         </nav>
 
         <div class="col-xs-12">
             <div class="homepage">
-
                 <center>
                     <h1> Hi, Cody</h1>
                     <p> You are $27 dollars away from your goal of $500!</p>
-
-                    <img src="image/pie.png" height="200" width="200" >
+                    <div id="donutchart"></div>
                     <div class="btn-group-1" role="group" aria-label="...">
-                        <button type="button" class="btn btn-default" id="savings-btn" onclick="savingsPage()">Add Savings</button>
+                        <button type="button" class="btn btn-default btn-lg" id="savings-btn" onclick="location.href='views/saving.html'">
+                            <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>Add Savings
+                        </button>
                     </div>
+                    <hr>
                     <div class="btn-group-2" role="group" aria-label="...">
-                        <button type="button" class="btn btn-default" id="goal-btn" onclick="goalPage()">Goals</button>
-                        <button type="button" class="btn btn-default" id="scan-btn" onclick="scanPage()">Scan</button>
+                        <button type="button" class="btn btn-default btn-lg" id="goal-btn" onclick="location.href='views/goal.html';">Goals</button>
+                        <button type="button" class="btn btn-default btn-lg" id="scan-btn" onclick="scanPage()">Scan</button>
                         
                     </div>
                 </center>
             </div>
-            <div class="goal">
-                <center>
-                    <div id="piechart"></div>
-                    <div class="col-xs-12">
-                        <ul class="nav nav-tabs">
-                        <li role="presentation" class="active"><a href="#">All</a></li>
-                        <li role="presentation"><a href="#">Grocery</a></li>
-                        <li role="presentation"><a href="#">Cloth</a></li>
-                        <li role="presentation"><a href="#">Others</a></li>
-                        </ul>
-                    </div>
-                </center>
-            </div>
-
-            <div class="addSavings">
-              <center>
-              <h1>Groceries</h1>
-              <form class="form-inline">
-                 <div class="form-group">
-                  <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
-                 <div class="input-group">
-                 <div class="input-group-addon">$</div>
-                 <input type="text" class="form-control" id="inputAmount" placeholder="Savings Amount">
-                 <div class="input-group-addon">.00</div>
-                 </div>
-                 </div>
-                 <button type="button" class="btn btn-primary" id="saving-btn" onclick="addSaving()">Add Savings</button>
-              </form>
-              </center>
-            </div>
-            
-            <div class="scan">
-                <center>
-                <input type="file" capture="camera" accept="image/*" id="cameraInput" name="cameraInput">
-                </center>
-            </div>
-
         </div>
 </body>
 </html>

@@ -1,0 +1,29 @@
+.dropdown-menu{
+    padding: 15px;
+    padding-bottom: 0px;
+    width:200px;
+}
+
+#username,#password{
+    margin-bottom: 15px;
+    margin-left: 10px;
+}
+
+.remember{
+    margin-left: 10px;
+}
+
+#or{
+    text-align:center;
+    margin-top:5px;
+    margin: 10px;
+}
+
+#sign-in{
+    width: 175px;
+    margin-left: 10px;
+}
+#sign-in-google,#sign-in-twitter{
+    width:150px;
+    margin-left: 10px;
+}
